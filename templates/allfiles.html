@@ -1,0 +1,101 @@
+{% extends 'dashboard.html' %}
+{% block addcss %}
+    <title>View</title>
+    <style>
+        /* General Page Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Table Styling */
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            text-align: center;
+        }
+
+        table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Link Styling */
+        a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            table {
+                width: 95%;
+            }
+
+            table th, table td {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="{{url_for('static',filename='table.css')}}">
+{% endblock %}   
+{% block content %}
+    <h1>View All Notes</h1>
+    <table border="1px">
+        <thead>
+            <tr>
+                <th>fileid</th>
+                <th>filename</th>
+                <th>create_at</th> 
+                <th>link</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in filesdata %}
+            <tr>
+                <td>{{i[0]}}</td>
+                <td>{{i[1]}}</td>
+                <td>{{i[2]}}</td>
+                <td><a href="{{url_for('viewfile',fid=i[0])}}">View</a></td>
+                <td><a href="{{url_for("downloadfile",fid=i[0])}}">Download</a></td>
+                <td><a href="{{url_for("deletefile",fid=i[0])}}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+

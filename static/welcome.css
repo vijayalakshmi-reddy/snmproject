@@ -1,0 +1,73 @@
+body{
+    background-image: url("https://www.shutterstock.com/image-photo/happy-girl-holding-hands-pile-260nw-569271673.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #d9f9fa;
+
+}
+body a{
+    border: 3px solid #542694;
+    padding: 6px;
+    border-radius: 50px;
+    text-decoration: none;
+    color: white;
+    background-color: #542694;
+    font-size: 25px;
+    display: inline-block; /* Allows width to take effect */
+    width: 14%;
+    text-align: center;
+}
+body a:hover{
+    background-color: transparent;
+    color: #542694;
+}
+body h1{
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.container {
+    text-align: center;
+    padding: 30px 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #ffcc99
+    rgb(255, 204, 153)
+    hsl(30, 100%, 80%);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 90%;
+}
+.container h2 {
+    font-size: 1.8rem;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+.container p {
+    margin: 15px 0;
+}
+
+.container a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #4CAF50;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+.container a:hover {
+    background-color: #45a049;
+}
+@media (max-width: 600px) {
+    .container h2 {
+        font-size: 1.4rem;
+    }
+
+    .container a {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+}

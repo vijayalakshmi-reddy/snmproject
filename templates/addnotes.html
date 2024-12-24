@@ -1,0 +1,20 @@
+{% extends 'dashboard.html' %}
+{% block addcss %}
+    <title>add</title>
+    <link rel="stylesheet" href="/static/addnotes.css">
+{% endblock %}   
+{% block content %}
+    <section>
+        <div class="content">
+        <h1>Add Notes</h1>
+            <form method="POST">
+            <p>Title</p>
+            <p><input type="text" placeholder="Enter the title" name="title"/></p>
+            <p>Description</p>
+            <p><textarea rows="4" cols="50" name="desc"></textarea></p>
+            <p><button>Add</button></p>
+            </form>
+        </div>
+    </section>
+{% endblock %} 
+

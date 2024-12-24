@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/dashboard.css">
+    <script>
+        function navigateTo(url) {
+            if (url) {
+                window.location.href = url;
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+{% block addcss %}{% endblock %}
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+       <center><h3>{{ message }}</center></h3>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <section class="section_content">
+        <div class="contentnav">
+            <nav class="navbar">
+                <a href="{{url_for('dashboard')}}">Home</a>
+                <select name="notes" id="notes" onchange="navigateTo(this.value)">
+                    <option value="">Select Notes</option>
+                    <option value="{{ url_for('addnotes') }}">Create Notes</option>
+                    <option value="{{url_for('viewallnotes')}}">View All Notes</option>
+                </select>
+                <select name="files" id="files" onchange="navigateTo(this.value)">
+                    <option value="">Select Files</option>
+                    <option value="{{url_for('upload_file')}}">Upload File</option>
+                    <option value="{{url_for('all_files')}}">View All Files</option>
+                </select>
+
+                    <form action="{{url_for('search')}}" method="POST">
+                        <input type="text" class="search-bar" name="sname" placeholder="Search...">
+                        <button>Search</button>
+                    </form>
+                
+                <p>{{session.get('user')}}
+                <i class="fa-regular fa-user"></i></p>
+                <a href="{{url_for('logout')}}">Logout</a>
+            </nav>
+        </div>
+        <h1>Welcome to Simple Notes Manager....<h1>
+    </section>
+{% block content %}{% endblock %}
+{% if sdata %}
+<table border="1px">
+        <thead>
+            <tr>
+                <th>Notes_id</th>
+                <th>Title</th>
+                <th>Created_At</th>
+                <th>View</th>
+                <th>Update</th>
+                <th>Delete</th> 
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in sdata %}
+            <tr>
+                <td>{{i[0]}}</td>
+                <td>{{i[1]}}</td>
+                <td>{{i[2]}}</td>
+                <td><a href="{{url_for("viewnotes",uid=i[0])}}">View</a></td>
+                <td><a href="{{url_for("updatenotes",uid=i[0])}}">Update</a></td>
+                <td><a href="{{url_for("deletenotes",uid=i[0])}}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+    </body>
+    </html>

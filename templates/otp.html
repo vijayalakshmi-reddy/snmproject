@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP</title>
+    <link rel="stylesheet" href="/static/create.css">
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+       <center><h3>{{ message }}</center></h3>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <section>
+        <h1>OTP</h1>
+        <div class="content">
+            <form  method="POST" class="formbody">
+                
+                <p class="ptag">Enter your OTP</p>
+                    <input class="inputbox" type="text" name="otp" required></p>
+                <p><button type="submit">submit</button></p>
+            </form>
+        </div>
+    </section>
+</body>
+</html>

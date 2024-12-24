@@ -1,0 +1,28 @@
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color: whitesmoke;
+    color: rgb(69, 30, 105);
+    font-size: 23px;
+    width: 100%;
+}
+.navbar a{
+    text-decoration: none;
+}
+body{
+    margin: 0%;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHU4VGxaxdk5GBTodGO_6jm_OAWz0rhV2uSw&s");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.navbar select{
+    border: none;
+    font-size: 18px;
+    color: rgb(69, 30, 105);
+    background-color: whitesmoke;
+}
+.section_content h1{
+    text-align: center;
+}
